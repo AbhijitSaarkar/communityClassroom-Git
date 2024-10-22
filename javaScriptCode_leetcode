@@ -1,0 +1,369 @@
+code 1 - 
+var createHelloWorld = function() { 
+    return function() {
+        return "Hello World";
+    }
+}
+
+
+code 2 - const makeCounter = () => {
+  let count = 0;
+  
+  return () => {
+    count++;
+    console.log(count);
+  }
+}
+
+let counter = makeCounter();
+counter(); // logs 1
+counter(); // logs 2
+counter(); // logs 3
+
+
+code 3 - /**
+ * @param {string} val
+ * @return {Object}
+ */
+var expect = function(val) {
+    return {
+        toBe: (val2) => {
+            if (val !== val2){
+                throw new Error("Not Equal");
+            }else{
+                return true;
+            }
+        },
+        notToBe: (val2) => {
+            if (val === val2){
+                throw new Error("Equal");
+            }
+            else{
+                return true;
+            }
+        }
+    }
+};
+
+/**
+ * expect(5).toBe(5); // true
+ * expect(5).notToBe(5); // throws "Equal"
+ */
+
+
+code 4 - var createCounter = function(init) {
+  let presentCount = init;
+
+  function increment() {
+    return ++presentCount;
+  }
+
+  function decrement() {
+      return --presentCount;
+  }
+
+  function reset() {
+      return (presentCount = init);
+  }
+
+  return { increment, decrement, reset };
+};
+
+
+code 5 - var map = function(arr, fn) {
+  const transformedArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    transformedArr[i] = fn(arr[i], i);
+  }
+  return transformedArr;
+};
+
+
+
+
+code 6 - /**
+ * @param {number[]} arr
+ * @param {Function} fn
+ * @return {number[]}
+ */
+var filter = function(arr, fn) {
+    let fil=[]
+    for(let i=0;i<arr.length;i++){
+        if(fn(arr[i],i)){
+            fil.push(arr[i]);
+        }
+    }
+    return fil
+};
+
+
+
+code 7 - /**
+ * @param {number[]} nums
+ * @param {Function} fn
+ * @param {number} init
+ * @return {number}
+ */
+var reduce = function(nums, fn, init) {
+  let val = init;
+  for (let i = 0; i < nums.length; i++) {
+    val = fn(val, nums[i]);
+  }
+  return val;
+};
+
+
+
+code 8 -  /**
+ * @param {Function[]} functions
+ * @return {Function}
+ */
+var compose = function(functions) {
+	if (functions.length === 0) {
+    return function(x) { return x; };
+  }
+
+  return functions.reduceRight(function(prevFn, nextFn) {
+    return function(x) {
+      return nextFn(prevFn(x));
+    };
+  });
+
+};
+
+
+const fn = compose([x => x + 1, x => 2 * x]);
+console.log(fn(4)); // 9
+
+
+
+code 9 -  /**
+ * @param {...(null|boolean|number|string|Array|Object)} args
+ * @return {number}
+ */
+function argumentsLength(...args) {
+  return args.length;
+}
+
+/**
+ * argumentsLength(1, 2, 3); // 3
+ */
+
+
+
+
+
+
+code 10 -    /**
+ * @param {Function} fn
+ * @return {Function}
+ */
+var once = function(fn) {
+
+  let hasBeenCalled = false;
+  let result;
+
+  return function(...args) {
+    if (!hasBeenCalled) {
+      result = fn(...args);
+      hasBeenCalled = true;
+      return result;
+    } else {
+      return undefined;
+    }
+  }
+
+};
+
+let fn = (a,b,c) => (a + b + c);
+let onceFn = once(fn);
+
+console.log(onceFn(1,2,3)); // 6
+console.log(onceFn(2,3,6)); // undefined
+
+
+
+
+code 11 - /**
+ * @param {Function} fn
+ */
+function memoize(fn) {
+    
+   const cache = {};
+  
+   return function(...args) {
+    const key = JSON.stringify(args);
+    
+    if (key in cache) {
+      return cache[key];
+    }
+    
+    const result = fn.apply(this, args);
+    cache[key] = result;
+    
+    return result;
+  }
+  
+}
+
+
+const memoizedSum = memoize(function(a, b) {
+  return a + b;
+});
+
+console.log(memoizedSum(2, 3)); // Output: Computing sum, 5
+console.log(memoizedSum(2, 3)); // Output: 5
+
+
+
+
+code 12 -   type P = Promise<number>
+
+async function addTwoPromises(promise1: P, promise2: P): P {
+    
+    return Promise.all([promise1,promise2])
+           .then( ([result1,result2]) => result1 + result2);
+    
+};
+
+/**
+ * addTwoPromises(Promise.resolve(2), Promise.resolve(2))
+ *   .then(console.log); // 4
+ */
+
+
+
+
+
+
+
+
+code 13 - /**
+ * @param {number} millis
+ */
+async function sleep(millis) {
+    await new Promise(resolve => setTimeout(resolve, millis));
+}
+
+/** 
+ * let t = Date.now()
+ * sleep(100).then(() => console.log(Date.now() - t)) // 100
+ */
+
+
+code 14 -  /**
+ * @param {Function} fn
+ * @param {Array} args
+ * @param {number} t
+ * @return {Function}
+ */
+const cancellable = function(fn, args, t) {
+    // cancelFn function//
+    const cancelFn = function (){
+      clearTimeout(timer);
+  };
+  const timer = setTimeout(()=>{
+      fn(...args)
+  }, t);
+  return cancelFn ;
+};
+
+
+/**
+ *  const result = []
+ *
+ *  const fn = (x) => x * 5
+ *  const args = [2], t = 20, cancelT = 50
+ *
+ *  const log = (...argsArr) => {
+ *      result.push(fn(...argsArr))
+ *  }
+ *       
+ *  const cancel = cancellable(fn, args, t);
+ *           
+ *  setTimeout(() => {
+ *     cancel()
+ *     console.log(result) // [{"time":20,"returned":10}]
+ *  }, cancelT)
+ */
+
+
+code 15 -   var cancellable = function(fn, args, t) {
+    fn(...args);
+    let timer = setInterval(() => fn(...args), t);
+
+    let cancelFn = () => clearInterval(timer);
+    return cancelFn;
+};
+
+
+
+code 16 ---   /**
+ * @param {Function} fn
+ * @param {number} t
+ * @return {Function}
+ */
+var timeLimit = (fn, t) => async (...args) => 
+    Promise.race([
+        fn(...args), 
+        new Promise((_, reject) => setTimeout(() => reject('Time Limit Exceeded'), t))
+    ]);
+
+/**
+ * Example:
+ * const limited = timeLimit((t) => new Promise(res => setTimeout(res, t)), 100);
+ * limited(150).catch(console.log) // "Time Limit Exceeded" at t=100ms
+ */
+
+
+code 17 -  const TimeLimitedCache = function() {
+    this.cache = new Map();  // Using Map so we don't need a size variable
+};
+
+TimeLimitedCache.prototype.set = function(key, value, duration) {
+    let found = this.cache.has(key);
+    if (found) clearTimeout(this.cache.get(key).ref);  // Cancel previous timeout
+    this.cache.set(key, {
+        value,  // Equivalent to `value: value`
+        ref: setTimeout(() => this.cache.delete(key), duration)
+    });
+    return found;
+};
+
+TimeLimitedCache.prototype.get = function(key) {
+    return this.cache.has(key) ? this.cache.get(key).value : -1;
+};
+
+TimeLimitedCache.prototype.count = function() {
+    return this.cache.size;
+};
+
+
+
+
+code 18 -    var debounce = function(fn, t = 1000) {
+    let timer;
+    return function(...args) {
+        clearTimeout(timer);
+        timer = setTimeout(() => fn(...args), t);
+    }
+};
+
+
+
+code 19 - var promiseAll = async function(functions) {
+    return new Promise((resolve, reject) => {
+        let results = [];
+        functions.forEach(fn => {
+            fn()
+            .then(val => results.push(val))
+            .catch(reason => reject(reason));
+        }));
+        resolve(results);
+    };
+}
+
+
+  
+
+  
