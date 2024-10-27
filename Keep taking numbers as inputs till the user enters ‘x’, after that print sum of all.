@@ -1,0 +1,25 @@
+package com.kunnal.doWhile;
+import java.util.Scanner;
+public class sumUntilx {
+
+    public static void main(String[] args) {
+     Scanner scanner = new Scanner (System.in);
+     int sum = 0;
+        System.out.println("Enter your number what you want to sum or press x to exit ");
+
+        while (true) {
+            String input = scanner.nextLine();
+            if(input.equalsIgnoreCase("x")) {
+                break;
+            } try {
+                int number = Integer.parseInt(input);
+                    sum += number;
+
+
+        } catch (NumberFormatException e) {
+                System.out.println("Invalid input please insert a integer or x");
+            }
+    }
+        System.out.println("The sum of all entered number is " + sum);
+        scanner.close();
+}}
