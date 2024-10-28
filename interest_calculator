@@ -1,0 +1,17 @@
+package com.kunnal.doWhile;
+import java.util.Scanner;
+public class interest_calculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your principle rate ");
+        Double pr = scanner.nextDouble();
+        System.out.println("Enter your Duration or Time");
+        int Time = scanner.nextInt();
+        System.out.println("Enter the rate of Interest");
+        Double interest = scanner.nextDouble();
+
+        Double rate = (pr * Time * interest) / 100;
+        System.out.println("Your total interest is " + rate);
+
+    }
+}
