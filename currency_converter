@@ -1,0 +1,14 @@
+package com.kunnal.doWhile;
+import java.util.Scanner;
+public class currency_converter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Welcome to the Main Stream Currency Exchange");
+        System.out.println("Enter your Amount");
+        Double inr = scanner.nextDouble();
+
+        Double usd = (inr / 84.1);
+
+        System.out.println( inr + " INR converted into $" + usd +" USD");
+    }
+}
