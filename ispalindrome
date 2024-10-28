@@ -1,0 +1,30 @@
+package com.kunnal.doWhile;
+import java.util.Scanner;
+public class isPalindrome {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+
+        System.out.println("Enter a stirng: ");
+        String originalString = scanner.nextLine();
+
+        String cleanedSting = originalString.replaceAll("\\s+", "").toLowerCase();
+
+        boolean isPalindrome = true;
+        int length = cleanedSting.length();
+
+        for (int i = 0; i < length/2 ; i++) {
+            if (cleanedSting.charAt(i) != cleanedSting.charAt(length -i-1)) {
+                isPalindrome = false;
+                break;
+            }
+        }
+
+        if(isPalindrome) {
+            System.out.println("The string \"" + originalString + "\" is a palindrome.");
+        } else {
+            System.out.println("The string \"" + originalString + "\" is not a palindrome.");
+        }
+        scanner.close();
+    }
+}
