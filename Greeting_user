@@ -1,0 +1,10 @@
+package com.kunnal.doWhile;
+import java.util.Scanner;
+public class Greeting_user {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter your name please ");
+        String user = scanner.nextLine();
+        System.out.println("Happy to see again " + user);
+    }
+}
