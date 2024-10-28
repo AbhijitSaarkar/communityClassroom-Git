@@ -1,0 +1,16 @@
+package com.kunnal.doWhile;
+import java.util.Scanner;
+public class oddEventIdentifier {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner (System.in);
+
+        System.out.println("Enter any number to findOut the number is Odd or Even");
+        int num = scanner.nextInt();
+        if (num % 2 == 0) {
+            System.out.println( num + " is an Even number");
+        } else {
+            System.out.println( num + " is a Odd number ");
+        }
+    }
+}
