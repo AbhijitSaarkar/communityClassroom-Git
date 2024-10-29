@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class ParallelogramPerimeterCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the lengths of the base and side
+        System.out.print("Enter the length of the base of the parallelogram: ");
+        double base = scanner.nextDouble();
+
+        System.out.print("Enter the length of the side of the parallelogram: ");
+        double side = scanner.nextDouble();
+
+        // Calculate the perimeter using the formula 2 * (base + side)
+        double perimeter = 2 * (base + side);
+
+        // Display the result
+        System.out.println("The perimeter of the parallelogram is: " + perimeter);
+
+        scanner.close();
+    }
+}
