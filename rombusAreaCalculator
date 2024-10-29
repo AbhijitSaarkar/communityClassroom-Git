@@ -1,0 +1,22 @@
+import java.util.Scanner;
+
+public class RhombusAreaCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the lengths of the diagonals
+        System.out.print("Enter the length of the first diagonal (d1): ");
+        double d1 = scanner.nextDouble();
+
+        System.out.print("Enter the length of the second diagonal (d2): ");
+        double d2 = scanner.nextDouble();
+
+        // Calculate the area using the formula (1/2) * d1 * d2
+        double area = 0.5 * d1 * d2;
+
+        // Display the result
+        System.out.println("The area of the rhombus is: " + area);
+
+        scanner.close();
+    }
+}
