@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class EquilateralTrianglePerimeterCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the length of a side
+        System.out.print("Enter the length of a side of the equilateral triangle: ");
+        double side = scanner.nextDouble();
+
+        // Calculate the perimeter using the formula 3 * side
+        double perimeter = 3 * side;
+
+        // Display the result
+        System.out.println("The perimeter of the equilateral triangle is: " + perimeter);
+
+        scanner.close();
+    }
+}
