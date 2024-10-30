@@ -1,0 +1,24 @@
+package com.kunnal.doWhile;
+
+import java.util.Scanner;
+
+public class perimeterOfsquare {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the base and side length
+        System.out.print("Enter the side: ");
+        double side = scanner.nextDouble();
+
+       
+
+        // Calculate the area using the formula (1/4) * base * sqrt(4 * side^2 - base^2)
+        double area = 4 * side;
+
+        // Display the result
+        System.out.println("The area of the isosceles triangle is: " + area);
+
+        scanner.close();
+    }
+}
