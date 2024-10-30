@@ -1,0 +1,24 @@
+package com.kunnal.doWhile;
+
+import java.util.Scanner;
+
+public class volumeOfpyramid {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the base and side length
+        System.out.print("Enter the Base Area: ");
+        double BaseArea = scanner.nextDouble();
+
+ System.out.print("Enter the Height: ");
+        double Height = scanner.nextDouble();
+
+
+        double volume= (1.0/3) * BaseArea *Height;
+
+        // Display the result
+        System.out.println("The area of the isosceles triangle is: " + volume);
+
+        scanner.close();
+    }
+}
