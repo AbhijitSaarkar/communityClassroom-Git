@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class ConeVolumeCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Input radius of the base
+        System.out.print("Enter the radius of the cone: ");
+        double radius = scanner.nextDouble();
+
+        // Input height of the cone
+        System.out.print("Enter the height of the cone: ");
+        double height = scanner.nextDouble();
+
+        // Calculate the volume of the cone
+        double volume = (1.0 / 3) * Math.PI * Math.pow(radius, 2) * height;
+
+        // Output the volume
+        System.out.printf("The volume of the cone is: %.2f", volume);
+        
+        scanner.close();
+    }
+}
