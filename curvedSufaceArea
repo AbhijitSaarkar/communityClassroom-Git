@@ -1,0 +1,25 @@
+package com.kunnal.doWhile;
+
+import java.util.Scanner;
+
+public class curvedSerfaceArea {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the base and side length
+        System.out.print("Enter the Radius: ");
+        double radius = scanner.nextDouble();
+
+        System.out.print("Enter the Height: ");
+        double Height = scanner.nextDouble();
+
+
+        double volume= 2*Math.PI*radius*Height;
+
+        // Display the result
+        System.out.println("The area of the isosceles triangle is: " + volume);
+
+        scanner.close();
+    }
+}
