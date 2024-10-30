@@ -1,0 +1,24 @@
+package com.kunnal.doWhile;
+
+import java.util.Scanner;
+
+public class total_suface_Area {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the base and side length
+      
+
+        System.out.print("Enter the Side: ");
+        double side = scanner.nextDouble();
+
+
+        double tsa = 6 * Math.pow(side, 2);
+
+        // Display the result
+        System.out.println("The area of the isosceles triangle is: " + tsa);
+
+        scanner.close();
+    }
+}
