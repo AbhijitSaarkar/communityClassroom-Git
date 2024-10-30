@@ -1,0 +1,24 @@
+package com.kunnal.doWhile;
+
+import java.util.Scanner;
+
+public class volumeOfPrism {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the base and side length
+        System.out.print("Enter the radius: ");
+        double radius = scanner.nextDouble();
+
+ System.out.print("Enter the height: ");
+        double height = scanner.nextDouble();
+
+        double volume= Math.PI* Math.pow(radius, 2) * height;
+
+        // Display the result
+        System.out.println("The area of the isosceles triangle is: " + volume);
+
+        scanner.close();
+    }
+}
