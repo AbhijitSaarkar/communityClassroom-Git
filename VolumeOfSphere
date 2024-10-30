@@ -1,0 +1,22 @@
+package com.kunnal.doWhile;
+
+import java.util.Scanner;
+
+public class volumeOfSphare {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt the user to enter the base and side length
+        System.out.print("Enter the radius: ");
+        double radius = scanner.nextDouble();
+
+
+        double volume= (4.0/3)*Math.PI*Math.pow(radius,3);
+
+        // Display the result
+        System.out.println("The area of the isosceles triangle is: " + volume);
+
+        scanner.close();
+    }
+}
