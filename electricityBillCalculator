@@ -1,0 +1,33 @@
+package com.kunnal.doWhile;
+import java.util.Scanner;
+public class electricityBill {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user to enter the number of units consumed
+        System.out.print("Enter the number of units consumed: ");
+        int unitsConsumed = scanner.nextInt();
+
+        // Define the rate per unit (this can vary by region)
+        double ratePerUnit = 0.0;
+        if (unitsConsumed <= 100) {
+            ratePerUnit = 1.5; // Example rate for the first 100 units
+        } else if (unitsConsumed <= 300) {
+            ratePerUnit = 3.0; // Example rate for the next 200 units
+        } else {
+            ratePerUnit = 5.0; // Example rate for units above 300
+        }
+
+        // Calculate the total bill
+        double totalBill = unitsConsumed * ratePerUnit;
+
+        // Add fixed charges (if any)
+        double fixedCharges = 50.0; // Example fixed charge
+        totalBill += fixedCharges;
+
+        // Display the total electricity bill
+        System.out.printf("The total electricity bill is: %.2f\n", totalBill);
+
+        scanner.close();
+    }
+}
