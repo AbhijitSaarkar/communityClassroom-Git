@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class CommissionPercentageCalculator {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user to enter total sales amount
+        System.out.print("Enter the total sales amount: ");
+        double totalSales = scanner.nextDouble();
+
+        // Prompt user to enter total commission earned
+        System.out.print("Enter the total commission earned: ");
+        double totalCommission = scanner.nextDouble();
+
+        // Calculate the commission percentage
+        double commissionPercentage = (totalCommission / totalSales) * 100;
+
+        // Display the result
+        System.out.printf("The commission percentage is: %.2f%%\n", commissionPercentage);
+
+        scanner.close();
+    }
+}
