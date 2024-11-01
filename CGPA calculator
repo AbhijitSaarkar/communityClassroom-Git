@@ -1,0 +1,52 @@
+package com.kunnal.doWhile;
+import java.util.Scanner;
+public class cgpaCalculator {
+    public static double getGradePoint(String grade) {
+        switch (grade.toUpperCase()) {
+            case "A":
+                return 4.0;
+            case "B":
+                return 3.0;
+            case "C":
+                return 2.0;
+            case "D":
+                return 1.0;
+            case "F":
+                return 0.0;
+            default:
+                System.out.println("Invalid grade entered: " + grade);
+                return 0.0; // Return 0 for invalid grades
+        }
+    }
+
+    public static double calculateCGPA(String[] grades) {
+        double totalPoints = 0.0;
+        for (String grade : grades) {
+            totalPoints += getGradePoint(grade);
+        }
+        return totalPoints / grades.length; // Calculate CGPA
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter the number of subjects: ");
+        int numberOfSubjects = scanner.nextInt();
+        scanner.nextLine(); // Consume the newline character
+
+        String[] grades = new String[numberOfSubjects];
+
+        // Input grades for each subject
+        for (int i = 0; i < numberOfSubjects; i++) {
+            System.out.print("Enter grade for subject " + (i + 1) + ": ");
+            grades[i] = scanner.nextLine();
+        }
+
+        // Calculate and print CGPA
+        double cgpa = calculateCGPA(grades);
+        System.out.printf("Your CGPA is: %.2f%n", cgpa);
+
+        scanner.close(); // Close the scanner
+    }
+
+}
