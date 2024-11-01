@@ -1,0 +1,48 @@
+public class DepreciationCalculator {
+
+    // Method for Straight-Line Depreciation
+    public static double straightLineDepreciation(double cost, double salvageValue, int usefulLife) {
+        return (cost - salvageValue) / usefulLife;
+    }
+
+    // Method for Declining Balance Depreciation
+    public static double decliningBalanceDepreciation(double cost, double salvageValue, int usefulLife, int year) {
+        double rate = 2.0 / usefulLife;  // Double declining rate
+        double bookValue = cost;
+        double depreciationExpense = 0.0;
+
+        for (int i = 0; i < year; i++) {
+            depreciationExpense = bookValue * rate;
+            bookValue -= depreciationExpense;
+            if (bookValue < salvageValue) {
+                bookValue = salvageValue;
+                break;
+            }
+        }
+
+        return depreciationExpense;
+    }
+
+    // Method for Units of Production Depreciation
+    public static double unitsOfProductionDepreciation(double cost, double salvageValue, double totalUnits, double unitsProduced) {
+        double ratePerUnit = (cost - salvageValue) / totalUnits;
+        return ratePerUnit * unitsProduced;
+    }
+
+    public static void main(String[] args) {
+        double cost = 10000.0;
+        double salvageValue = 2000.0;
+        int usefulLife = 5;
+        int year = 3;
+        double totalUnits = 50000.0;
+        double unitsProduced = 10000.0;
+
+        double straightLine = straightLineDepreciation(cost, salvageValue, usefulLife);
+        double decliningBalance = decliningBalanceDepreciation(cost, salvageValue, usefulLife, year);
+        double unitsOfProduction = unitsOfProductionDepreciation(cost, salvageValue, totalUnits, unitsProduced);
+
+        System.out.println("Straight-Line Depreciation: " + straightLine);
+        System.out.println("Declining Balance Depreciation for year " + year + ": " + decliningBalance);
+        System.out.println("Units of Production Depreciation: " + unitsOfProduction);
+    }
+}
