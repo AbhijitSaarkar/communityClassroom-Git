@@ -1,0 +1,19 @@
+public class BattingAverageCalculator {
+
+    // Method to calculate batting average
+    public static double calculateBattingAverage(int totalRuns, int timesOut) {
+        if (timesOut == 0) {
+            // If player has never been out, return total runs as the average
+            return totalRuns;
+        }
+        return (double) totalRuns / timesOut;
+    }
+
+    public static void main(String[] args) {
+        int totalRuns = 2500;
+        int timesOut = 50;
+
+        double battingAverage = calculateBattingAverage(totalRuns, timesOut);
+        System.out.println("Batting Average: " + battingAverage);
+    }
+}
