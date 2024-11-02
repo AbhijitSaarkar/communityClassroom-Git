@@ -1,0 +1,17 @@
+package com.kunnal.doWhile;
+import java.util.Scanner;
+public class sumofNnumbers {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the value of N: ");
+        int n = scanner.nextInt();
+        int total = 0;
+        for (int i = 0; i < n; i++) {
+            System.out.print("Enter number " + (i+1) + ": ");
+            int num = scanner.nextInt();
+            total += num;
+        }
+        System.out.println("Sum: " + total);
+    }
+}
