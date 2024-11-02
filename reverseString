@@ -1,0 +1,7 @@
+public class ReverseString {
+    public static void main(String[] args) {
+        String str = "Hello World";
+        StringBuilder sb = new StringBuilder(str); // stringbuilder is a object which make sting mutable 
+        System.out.println("Reversed String: " + sb.reverse());
+    }
+}
